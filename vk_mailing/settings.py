@@ -21,7 +21,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'apps.main'
+    'apps.main',
+    'apps.tokens'
 ]
 
 MIDDLEWARE = [
@@ -95,6 +96,3 @@ STATIC_URL = '/static/'
 
 
 AUTH_USER_MODEL = 'main.User'
-
-
-SITE_ID = 1

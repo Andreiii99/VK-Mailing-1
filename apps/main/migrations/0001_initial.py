@@ -4,11 +4,14 @@ from django.conf import settings
 
 def set_site_domain(apps, schema_editor):
     Site = apps.get_model('sites', 'Site')
-    Site.objects.create(
-        id=settings.SITE_ID,
-        domain='localhost:8000' if not settings.SITE_ID - 1 else settings.ALLOWED_HOSTS[settings.SITE_ID],
-        name='Vk mailing'
-    )
+
+    for i in settings.ALLOWED_HOSTS:
+        site_id = settings.ALLOWED_HOSTS.index(i) + 1
+        Site.objects.create(
+            id=site_id,
+            domain='localhost:8000' if not site_id - 1 else settings.ALLOWED_HOSTS[site_id],
+            name='Vk mailing'
+        )
 
 
 class Migration(migrations.Migration):
