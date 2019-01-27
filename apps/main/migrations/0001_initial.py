@@ -9,7 +9,7 @@ def set_site_domain(apps, schema_editor):
         site_id = settings.ALLOWED_HOSTS.index(i) + 1
         Site.objects.create(
             id=site_id,
-            domain='localhost:8000' if not site_id - 1 else settings.ALLOWED_HOSTS[site_id],
+            domain='localhost:8000' if not site_id - 1 else settings.ALLOWED_HOSTS[site_id - 1],
             name='Vk mailing'
         )
 

@@ -14,7 +14,8 @@ ALLOWED_HOSTS = ['localhost']
 
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
+    'apps.admin.apps.AdminSiteAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -30,7 +31,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'apps.main.middleware.TokenAuthenticationMiddleware',
+    # 'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -96,3 +98,6 @@ STATIC_URL = '/static/'
 
 
 AUTH_USER_MODEL = 'main.User'
+
+
+AUTHENTICATION_BACKENDS = ['apps.main.authentication_backend.TokenAuthBackend']
